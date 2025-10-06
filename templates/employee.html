@@ -1,0 +1,23 @@
+
+{% extends "layout.html" %}
+{% block title %}Employee Chat{% endblock %}
+{% block content %}
+<div class="chat-container">
+    <h2>Employee Chat</h2>
+    <div class="chat-box">
+        {% for sender, message in messages %}
+            <div class="message {{ sender }}">
+                <strong>{{ sender.capitalize() }}:</strong> {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="message" placeholder="Type your message...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
